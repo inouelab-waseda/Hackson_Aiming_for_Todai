@@ -8,9 +8,11 @@ class ApiClient {
       'Content-Type': 'application/json',
     }
     
-    const token = localStorage.getItem('access_token')
-    if (token) {
-      headers['Authorization'] = `Bearer ${token}`
+    if (typeof window !== 'undefined') {
+      const token = localStorage.getItem('access_token')
+      if (token) {
+        headers['Authorization'] = `Bearer ${token}`
+      }
     }
     
     return headers

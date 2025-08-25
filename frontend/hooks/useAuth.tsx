@@ -1,3 +1,5 @@
+'use client';
+
 import { useState, useEffect, createContext, useContext, ReactNode } from 'react'
 import { User } from '@/types'
 import { auth } from '@/lib/auth'
@@ -21,12 +23,16 @@ export function AuthProvider({ children }: { children: ReactNode }) {
 
   useEffect(() => {
     const initAuth = async () => {
+      console.log('Initializing auth...')
       try {
         const currentUser = await auth.getCurrentUser()
+        console.log('Current user:', currentUser)
         setUser(currentUser)
       } catch (error) {
         console.error('Auth initialization error:', error)
+        setUser(null)
       } finally {
+        console.log('Auth initialization complete')
         setLoading(false)
       }
     }
