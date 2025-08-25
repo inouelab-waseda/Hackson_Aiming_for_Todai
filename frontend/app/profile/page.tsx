@@ -5,6 +5,7 @@ import { useAuth } from '@/hooks/useAuth'
 import { useLevel } from '@/hooks/useLevel'
 import { api } from '@/lib/api'
 import { User } from '@/types'
+import Link from 'next/link'
 import LevelBadge from '@/components/common/LevelBadge'
 
 export default function ProfilePage() {
@@ -256,7 +257,10 @@ export default function ProfilePage() {
               クイックアクション
             </h3>
             <div className="space-y-3">
-              <button className="w-full text-left p-3 border border-gray-200 rounded-lg hover:border-gray-300 hover:bg-gray-50 transition-colors">
+              <Link
+                href="/schedule"
+                className="block w-full text-left p-3 border border-gray-200 rounded-lg hover:border-gray-300 hover:bg-gray-50 transition-colors"
+              >
                 <div className="flex items-center space-x-3">
                   <div className="w-8 h-8 bg-indigo-100 rounded-lg flex items-center justify-center">
                     <svg className="w-4 h-4 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -268,9 +272,12 @@ export default function ProfilePage() {
                     <p className="text-xs text-gray-500">スケジュール画面を開く</p>
                   </div>
                 </div>
-              </button>
+              </Link>
               
-              <button className="w-full text-left p-3 border border-gray-200 rounded-lg hover:border-gray-300 hover:bg-gray-50 transition-colors">
+              <Link
+                href="/ranking"
+                className="block w-full text-left p-3 border border-gray-200 rounded-lg hover:border-gray-300 hover:bg-gray-50 transition-colors"
+              >
                 <div className="flex items-center space-x-3">
                   <div className="w-8 h-8 bg-yellow-100 rounded-lg flex items-center justify-center">
                     <svg className="w-4 h-4 text-yellow-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -282,7 +289,7 @@ export default function ProfilePage() {
                     <p className="text-xs text-gray-500">現在の順位をチェック</p>
                   </div>
                 </div>
-              </button>
+              </Link>
             </div>
           </div>
         </div>
