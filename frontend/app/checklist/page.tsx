@@ -29,12 +29,12 @@ export default function ChecklistPage() {
 
   const handleCompleteItem = async (checklistId: number) => {
     try {
-      await api.completeChecklist(checklistId)
+      const updatedChecklist = await api.completeChecklist(checklistId)
       setChecklists(prev => prev.map(item => 
-        item.id === checklistId ? { ...item, completed: true } : item
+        item.id === checklistId ? { ...item, completed: updatedChecklist.completed } : item
       ))
     } catch (err) {
-      console.error('Failed to complete checklist item:', err)
+      console.error('Failed to toggle checklist item:', err)
     }
   }
 

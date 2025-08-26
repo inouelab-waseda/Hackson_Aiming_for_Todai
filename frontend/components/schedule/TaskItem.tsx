@@ -14,7 +14,6 @@ export default function TaskItem({ task, onComplete, onDelete }: TaskItemProps) 
   const [loading, setLoading] = useState(false)
 
   const handleComplete = async () => {
-    if (task.completed) return
     setLoading(true)
     try {
       await onComplete()
@@ -40,11 +39,11 @@ export default function TaskItem({ task, onComplete, onDelete }: TaskItemProps) 
       <div className="flex items-center space-x-4 flex-1">
         <button
           onClick={handleComplete}
-          disabled={task.completed || loading}
+          disabled={loading}
           className={`
             w-6 h-6 rounded-full border-2 flex items-center justify-center
             ${task.completed
-              ? 'bg-green-500 border-green-500 text-white'
+              ? 'bg-green-500 border-green-500 text-white hover:bg-green-400 hover:border-green-400'
               : 'border-gray-300 hover:border-indigo-500 focus:border-indigo-500'
             }
             ${loading ? 'opacity-50 cursor-not-allowed' : 'cursor-pointer'}

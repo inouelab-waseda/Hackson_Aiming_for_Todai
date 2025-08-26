@@ -25,17 +25,33 @@ class ApiClient {
       ...(options.headers as Record<string, string> || {}),
     }
     
-    const response = await fetch(url, {
-      ...options,
-      headers,
-    })
+    try {
+      const response = await fetch(url, {
+        ...options,
+        headers,
+      })
 
-    if (!response.ok) {
-      const error = await response.json().catch(() => ({ message: 'Network error' }))
-      throw new Error(error.message || 'Something went wrong')
+      if (!response.ok) {
+        let errorMessage = `HTTP ${response.status}: ${response.statusText}`
+        
+        try {
+          const errorData = await response.json()
+          errorMessage = errorData.message || errorData.error || errorMessage
+        } catch (jsonError) {
+          // JSON解析に失敗した場合はHTTPエラーメッセージを使用
+          console.warn('Failed to parse error response as JSON:', jsonError)
+        }
+        
+        throw new Error(errorMessage)
+      }
+
+      return response.json()
+    } catch (error) {
+      if (error instanceof TypeError && error.message === 'Failed to fetch') {
+        throw new Error('サーバーに接続できません。サーバーが起動しているか確認してください。')
+      }
+      throw error
     }
-
-    return response.json()
   }
 
   // Auth
@@ -82,10 +98,15 @@ class ApiClient {
     })
   }
 
-  async completeTask(taskId: number): Promise<{ task: Task; user: User }> {
+  async toggleTaskCompletion(taskId: number): Promise<{ task: Task; user: User }> {
     return this.request<{ task: Task; user: User }>(`/api/tasks/${taskId}/complete`, {
       method: 'PUT',
     })
+  }
+
+  // 後方互換性のため古い名前も残す
+  async completeTask(taskId: number): Promise<{ task: Task; user: User }> {
+    return this.toggleTaskCompletion(taskId)
   }
 
   // Task Types
@@ -99,7 +120,7 @@ class ApiClient {
   }
 
   async completeChecklist(checklistId: number): Promise<Checklist> {
-    return this.request<Checklist>(`/api/checklists/${checklistId}/complete`, {
+    return this.request<Checklist>(`/api/checklists/${checklistId}/toggle`, {
       method: 'PUT',
     })
   }
