@@ -17,7 +17,7 @@ docker-compose up -d --build
 ### フロントエンド（手動起動）
 ```bash
 # 別ターミナルで
-cd hackson/frontend
+cd frontend
 npm install
 npm run dev
 ```
