@@ -38,7 +38,7 @@ export default function HomePage() {
           <div className="flex justify-between h-16 items-center">
             <div className="flex items-center">
               <h1 className="text-2xl font-bold text-indigo-600">
-                東大受験アプリ
+                東大柱育成アプリ
               </h1>
             </div>
             <div className="flex space-x-4">
@@ -63,12 +63,12 @@ export default function HomePage() {
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="text-center">
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-gray-900 mb-8">
-            東大合格への
+            東大柱育成への
             <span className="text-indigo-600 block">最短ルート</span>
           </h1>
           
           <p className="text-xl text-gray-600 mb-12 max-w-3xl mx-auto">
-            日々の勉強をゲーム化し、モチベーションを維持しながら効率的に東大合格を目指しましょう。
+            日々の勉強をゲーム化し、モチベーションを維持しながら効率的に東大柱を目指しましょう。
             ポイント制度とランキングで競い合い、仲間と一緒に成長できます。
           </p>
 
@@ -99,7 +99,7 @@ export default function HomePage() {
                 タスク管理
               </h3>
               <p className="text-gray-600">
-                科目別に勉強時間を記録し、ポイントを獲得。継続的な学習習慣を身につけましょう。
+                科目別に学習時間を記録し、ポイントを獲得。継続的な学習習慣を身につけましょう。
               </p>
             </div>
 
@@ -113,7 +113,7 @@ export default function HomePage() {
                 チェックリスト
               </h3>
               <p className="text-gray-600">
-                受験準備の重要な項目をチェックリスト化。忘れがちな手続きも漏れなく管理できます。
+                東大柱育成の重要な項目をチェックリスト化。忘れがちな手続きも漏れなく管理できます。
               </p>
             </div>
 
@@ -127,7 +127,7 @@ export default function HomePage() {
                 ランキング
               </h3>
               <p className="text-gray-600">
-                全国の受験生とポイントで競い合い。切磋琢磨して合格への道を歩みましょう。
+                全国の学習者とポイントで競い合い。切磋琢磨して東大柱への道を歩みましょう。
               </p>
             </div>
           </div>

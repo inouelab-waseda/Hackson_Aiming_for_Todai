@@ -3,8 +3,8 @@ import AuthLayout from '@/components/auth/AuthLayout'
 import './globals.css'
 
 export const metadata = {
-  title: '東大受験アプリ',
-  description: '東大受験のためのタスク管理アプリ',
+  title: '東大柱育成アプリ',
+  description: '東大柱育成のためのタスク管理アプリ',
 }
 
 export default function RootLayout({

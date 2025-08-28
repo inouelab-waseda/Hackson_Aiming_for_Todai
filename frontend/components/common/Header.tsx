@@ -17,7 +17,7 @@ export default function Header() {
         <div className="flex justify-between h-16 items-center">
           <div className="flex items-center space-x-8">
             <Link href="/dashboard" className="text-xl font-bold text-indigo-600">
-              東大受験アプリ
+              東大柱育成アプリ
             </Link>
             <nav className="hidden md:flex space-x-6">
               <Link href="/dashboard" className="text-gray-700 hover:text-indigo-600 px-3 py-2 text-sm font-medium">
