@@ -95,10 +95,10 @@ export default function ChecklistPage() {
     <div className="px-4 sm:px-0">
       <div className="mb-8">
         <h1 className="text-3xl font-bold text-gray-900 mb-2">
-          受験準備チェックリスト
+          東大柱育成チェックリスト
         </h1>
         <p className="text-gray-600">
-          東大受験に必要な準備項目をチェックしましょう。忘れがちな手続きも漏れなく管理できます。
+          東大柱育成に必要な準備項目をチェックしましょう。忘れがちな手続きも漏れなく管理できます。
         </p>
       </div>
 

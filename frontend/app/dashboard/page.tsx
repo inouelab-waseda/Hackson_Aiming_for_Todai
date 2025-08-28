@@ -45,7 +45,7 @@ export default function DashboardPage() {
           おかえりなさい、{user?.username}さん
         </h1>
         <p className="mt-2 text-gray-600">
-          今日も頑張って東大合格を目指しましょう！
+          今日も頑張って東大柱を目指しましょう！
         </p>
       </div>
 
